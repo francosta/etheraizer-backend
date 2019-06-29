@@ -8,7 +8,7 @@ class UserSerializer
         options = {
           include: {
             projects: {
-              only: [:title, :description, :goal, :status, :progress]
+              only: [:title, :description, :goal, :status]
             }
           },
           except: [:updated_at, :created_at, :id, :password_digest],
