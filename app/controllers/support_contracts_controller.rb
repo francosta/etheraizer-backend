@@ -1,0 +1,2 @@
+class SupportContractsController < ApplicationController
+end
