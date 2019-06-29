@@ -16,7 +16,6 @@ class UsersController < ApplicationController
     end
 
     def create
-        byebug
         user = User.create(user_params)
         render json: user
     end
@@ -30,7 +29,7 @@ class UsersController < ApplicationController
     def login
         user = User.find_by(email: user_params[:email])
         if user && user.authenticate(params[:password])
-            render json: {username: user.name, token: issue_token({id: user.id})}
+            render json: {username: user.email, token: issue_token({id: user.id})}
         else
             render json: {error: 'Invalid user/password combination.'}, status: 401
         end
@@ -39,7 +38,7 @@ class UsersController < ApplicationController
     def validate
         user = current_user
         if user
-            render json: {username: user.name, token: issue_token({id: user.id})}
+            render json: {username: user.email, token: issue_token({id: user.id})}
         else
             render json: {error: 'User not found'}, status: 404
         end

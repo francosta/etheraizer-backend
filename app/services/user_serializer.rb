@@ -4,6 +4,7 @@ class UserSerializer
         @user = user_object
     end
 
+
     def to_serialized_hash
         options = {
           include: {
