@@ -10,20 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_29_154119) do
-
-  create_table "project_contracts", force: :cascade do |t|
-    t.integer "value"
-    t.integer "user_id"
-    t.integer "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_project_contracts_on_project_id"
-    t.index ["user_id"], name: "index_project_contracts_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2019_06_29_163315) do
 
   create_table "projects", force: :cascade do |t|
-    t.integer "owner_id"
     t.string "title"
     t.text "description"
     t.integer "goal"
@@ -31,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_06_29_154119) do
     t.datetime "updated_at", null: false
     t.string "status"
     t.integer "progress"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "support_contracts", force: :cascade do |t|
