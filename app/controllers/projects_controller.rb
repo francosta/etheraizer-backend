@@ -16,7 +16,6 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        byebug
         project = Project.new(project_params)
         if project.save
             render json: project
@@ -34,7 +33,7 @@ class ProjectsController < ApplicationController
     private
 
     def project_params 
-        params.permit(:id, :title, :description, :goal)
+        params.permit(:id, :title, :description, :goal, :user_id)
     end
 
 end
