@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
     end
 
     def update
-        project = Project.find(id: params[:id])
+        project = Project.find_by id: params[:id]
         project.update(project_params)
         render json: project 
     end
