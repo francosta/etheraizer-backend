@@ -9,4 +9,17 @@ class User < ApplicationRecord
             Project.all.select{|project| project.id == contract.project_id}
         end
     end
+
+    def created_projects
+        self.projects.select{|project| project.status == "created"}
+    end
+
+    def deployed_projects
+        self.projects.select{|project| project.status == "deployed"}
+    end
+
+    def funded_projects
+        self.projects.select{|project| project.status == "funded"}
+    end
+
 end
