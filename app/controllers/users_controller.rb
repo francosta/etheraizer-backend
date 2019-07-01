@@ -2,12 +2,14 @@ class UsersController < ApplicationController
 
     def index
         users = User.all
-        render json: UserSerializer.new(users).to_serialized_hash
+        # render json: UserSerializer.new(users).to_serialized_hash
+        render json: users, except: [:password_digest, :updated_at, :created_at], include: [:created_projects, :deployed_projects, :funded_projects]
     end
 
     def show
         user = User.find_by(id: params[:id])
-        render json: UserSerializer.new(user).to_serialized_hash
+        # render json: UserSerializer.new(user).to_serialized_hash
+        render json: user, except: [:updated_at, :created_at], include: [:created_projects, :deployed_projects, :funded_projects]
     end
 
     def destroy
@@ -47,7 +49,7 @@ class UsersController < ApplicationController
     def user_data
         user = current_user
         if user
-            render json: UserSerializer.new(user).to_serialized_hash
+            render json: user, except: [:password_digest, :updated_at, :created_at], include: [:created_projects, :deployed_projects, :funded_projects]
         else
             render json: {error: 'Invalid token'}, status: 404
         end
