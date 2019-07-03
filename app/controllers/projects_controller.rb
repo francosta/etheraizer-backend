@@ -25,7 +25,6 @@ class ProjectsController < ApplicationController
     end
 
     def update
-        byebug
         project = Project.find_by id: params[:id]
         project.update(project_params)
         render json: project 
@@ -34,7 +33,7 @@ class ProjectsController < ApplicationController
     private
 
     def project_params 
-        params.permit(:id, :title, :description, :goal, :user_id, :blockchain_address, :status)
+        params.permit(:id, :title, :description, :goal, :user_id, :blockchain_address, :status, :progress)
     end
 
 end
