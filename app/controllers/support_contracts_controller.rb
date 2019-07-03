@@ -13,6 +13,6 @@ class SupportContractsController < ApplicationController
     private
 
     def support_contract_params
-        params.permit(:user_id, :project_id)
+        params.permit(:user_id, :project_id, :value)
     end
 end

@@ -18,8 +18,13 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.create(user_params)
-        render json: user
+        user = User.new(first_name: params["user"]["first_name"], last_name: params["user"]["last_name"], email: params["user"]["email"], password: params["user"]["password"])
+        if User.all.find_by(email: params["user"]["email"] )
+            render json: {error: 'Account with this email already exists.'}, status: 401
+        else
+            user.save
+            render json: user
+        end
     end
 
     def update

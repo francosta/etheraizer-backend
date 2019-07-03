@@ -25,6 +25,7 @@ class ProjectsController < ApplicationController
     end
 
     def update
+        byebug
         project = Project.find_by id: params[:id]
         project.update(project_params)
         render json: project 
