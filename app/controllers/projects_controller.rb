@@ -16,7 +16,11 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        project = Project.new(project_params)
+        if project_params["image"] == ""
+            project = Project.new(title: project_params["title"], description: project_params["description"], goal: project_params["goal"], user_id: project_params["user_id"], status: project_params["status"], image: "https://github.com/francosta/etheraizer-frontend/raw/development/public/%CE%9Etheraizer%20Logo.png")
+        else
+            project = Project.new(project_params)
+        end
         if project.save
             render json: project
         else

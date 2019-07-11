@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = User.find(id: params[:id])
+        user = User.find_by(id: params[:id].to_i)
         user.update(user_params)
         render json: user 
     end
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
     private
 
     def user_params 
-        params.permit(:id, :name, :email, :password, :profile_picture)
+        params.require(:user).permit(:id, :first_name, :last_name, :email, :password, :profile_picture, :user, :editedUser)
     end
 
 end
