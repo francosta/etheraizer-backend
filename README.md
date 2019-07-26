@@ -14,7 +14,7 @@ A blockchain-based crowdfunding app, especially as cryptocurrencies get more sta
 
 # Server
 
-The frontenf API was built using Ruby on Rails with a PostgreSQL database. 
+The backend API was built using Ruby on Rails with a PostgreSQL database.
 
 The blockchain-related backend is written in Javascript and blockchain smart contracts in Solidity.
 I have adopted a TDD approach for writing the contracts, using Mocha.
@@ -57,3 +57,4 @@ All projects page
 
 ![ProjectPage](https://github.com/francosta/etheraizer-frontend/blob/master/public/Screenshots/projectPage.png)
 Project page
+
