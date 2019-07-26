@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_30_143446) do
+ActiveRecord::Schema.define(version: 2019_07_26_135706) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_06_30_143446) do
     t.integer "progress"
     t.integer "user_id"
     t.string "blockchain_address"
+    t.string "image"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

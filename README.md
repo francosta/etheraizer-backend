@@ -25,7 +25,7 @@ During development, I have used the Kovan Ethereum Test Network.
 
 The client-side of the application is built in React, using Next.js for server-side rendering.
 The frontend design was made using Semantic UI and CSS.
-This can be found in a different [GitHub repository](https://github.com/francosta/etheraizer-frontend).
+This can be found in a different [GitHub repository](https://github.com/francosta/etheraizer-frontend.).
 
 # User Journeys
 
